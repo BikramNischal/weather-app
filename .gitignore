@@ -23,4 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+.env
+
+
 weather.code-workspace
