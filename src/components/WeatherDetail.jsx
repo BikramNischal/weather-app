@@ -4,7 +4,7 @@ import MiniWeatherContainer from "./MiniWeatherContainer";
 
 
 export default function WeatherDetail() {
-    return (
+    return( 
         <div>
             <WeatherDetailHeader />
             <MiniWeatherContainer />
