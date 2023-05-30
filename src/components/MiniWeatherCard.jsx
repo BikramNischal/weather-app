@@ -1,7 +1,7 @@
 import { BsSun, BsCloudSun, BsCloud, BsCloudRain, BsCloudLightningRain, BsLightning, BsCloudHaze2, BsQuestion } from "react-icons/bs";
 
 
-function ReturnWeatherCondition({ condition, size }) {
+export function ReturnWeatherIcon({ condition, size }) {
     switch (condition) {
         case 1:
             return <BsSun className={size} />;
@@ -31,12 +31,10 @@ function ReturnWeatherCondition({ condition, size }) {
 
 }
 
-
-
 export default function MiniWeatherCard({ condition, size }) {
     return (
         <div>
-            <ReturnWeatherCondition condition={condition} size={size} />
+            <ReturnWeatherIcon condition={condition} size={size} />
             <p>sun</p>
             <p>temp</p>
         </div>

@@ -14,17 +14,17 @@ function Greeting() {
     const tod = timeOfDay();
     if (tod === 0) {
         return (
-            <p> <BsSun className="inline-block text-4xl" /> Good {timeOfDay()} User!</p>
+            <p> <BsSun className="inline-block text-4xl" /> Good Morning User!</p>
         )
     }
     else if (tod === 1) {
         return (
-            <p> <BsSunset className="inline-block text-4xl" /> Good {timeOfDay()} User!</p>
+            <p> <BsSunset className="inline-block text-4xl" /> Good Afternoon User!</p>
         );
     }
     else {
         return (
-            <p> <BsMoon className="inline-block text-4xl" /> Good {timeOfDay()} User!</p>
+            <p> <BsMoon className="inline-block text-4xl" /> Good Night User!</p>
         );
     }
 }

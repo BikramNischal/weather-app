@@ -13,7 +13,7 @@ export default function SunTimeCard() {
                     </p>
                 </div>
 
-                <div className="flex">
+                <div className="flex gap-5">
                     <BsSunset className="text-4xl" />
                     <p>
                         Sunset  <span className="block">4:40PM</span>

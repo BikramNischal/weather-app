@@ -47,9 +47,9 @@ export default function DateTime() {
     let currentDate = daysOfWeek[dateTime.day] + ", " 
         + dateTime.todayDate + " " + monthsOfYear[dateTime.month] + ", " + dateTime.year;
     return (
-        <>
+        <div className="my-3">
             <p className="text-4xl">{currentTime}</p>
             <p>{currentDate}</p>
-        </>
+        </div>
     );
 }
