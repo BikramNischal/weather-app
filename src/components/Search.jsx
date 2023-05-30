@@ -16,4 +16,3 @@ const Search = ({onSearchChange}) =>{
 }
 
 export default Search;
-// placeholder="Search Citys" debounceTimeout = {600} value = {search} onChange= {handleOnChange} 
