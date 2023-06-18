@@ -2,7 +2,7 @@
 
 export default function Rainfall(){
     return(
-        <div className="container w-80 border-solid border-2 border-black ">
+        <div className="container bg-white h-[200px] p-[20px] rounded-xl ">
             RainFall data or Graph.
         </div>
     )

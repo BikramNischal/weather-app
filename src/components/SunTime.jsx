@@ -2,9 +2,9 @@ import SunTimeCard from "./SunTimeCard"
 
 export default function SunTime() {
     return (
-        <section>
-            <h3>Sunrise & Sunset</h3>
-            <div>
+        <section className="bg-white p-[20px] rounded-xl">
+            <h3 className="text-xl font-bold my-[5px]">Sunrise & Sunset</h3>
+            <div className="flex flex-col gap-[10px]">
                 <SunTimeCard />
                 <SunTimeCard />
                 <SunTimeCard />

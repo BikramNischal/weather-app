@@ -6,11 +6,11 @@ import SunTime from "./SunTime";
 
 export default function WeatherDetail() {
     return (
-        <section>
+        <section className=" w-3/4 p-10  bg-blue-50 ">
             <WeatherDetailHeader />
             <MiniWeatherContainer />
-            <div className="flex" >
-                <div className="container flex flex-col gap-10">
+            <div className="flex gap-[20px]" >
+                <div className="container flex flex-col gap-[20px]">
                     <AirQuality />
                     <Rainfall />
                 </div>

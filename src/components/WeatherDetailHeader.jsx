@@ -10,21 +10,27 @@ const timeOfDay = () => {
 }
 
 
-function Greeting() {
+function Greeting(props) {
     const tod = timeOfDay();
     if (tod === 0) {
         return (
-            <p> <BsSun className="inline-block text-4xl" /> Good Morning User!</p>
+            <p className={" " + props.color + " " + props.bold}>
+                <BsSun className="inline-block text-4xl" /> Good Morning User!
+            </p>
         )
     }
     else if (tod === 1) {
         return (
-            <p> <BsSunset className="inline-block text-4xl" /> Good Afternoon User!</p>
+            <p className={" " + props.color + " " + props.bold}>
+                <BsSunset className="inline-block  text-4xl" /> Good Afternoon User!
+            </p>
         );
     }
     else {
         return (
-            <p> <BsMoon className="inline-block text-4xl" /> Good Night User!</p>
+            <p className={" " + props.color + " " + props.bold}>
+                <BsMoon className="inline-block  text-4xl" /> Good Night User!
+            </p>
         );
     }
 }
@@ -33,7 +39,7 @@ export default function WeatherDetailHeader() {
     return (
         <>
             <DateTime />
-            <Greeting />
+            <Greeting color="text-blue-600" bold="font-bold" />
         </>
     );
 }

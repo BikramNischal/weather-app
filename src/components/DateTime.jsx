@@ -48,7 +48,7 @@ export default function DateTime() {
         + dateTime.todayDate + " " + monthsOfYear[dateTime.month] + ", " + dateTime.year;
     return (
         <div className="my-3">
-            <p className="text-4xl">{currentTime}</p>
+            <p className="text-4xl font-bold text-blue-500">{currentTime}</p>
             <p>{currentDate}</p>
         </div>
     );

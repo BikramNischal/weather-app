@@ -12,8 +12,10 @@ const apiData = (async function () {
     return forecast
 })();
 
-const forecastData = apiData.then((forecastArr) => {return forecastArr.forecastday});
+let forecastData;
+if(apiData){
+    forecastData = apiData.then((forecastArr) => {return forecastArr.forecastday});
+}
 
 const WeatherContext = createContext(forecastData);
-
 export default WeatherContext;
