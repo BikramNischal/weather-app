@@ -5,9 +5,15 @@ import { ReturnWeatherIcon } from "./MiniWeatherCard";
 
 export function WindAndHum() {
     return (
-        <div>
-            <p><BsWind className="inline-block" /> wind |19km/h</p>
-            <p><BsDroplet className="inline-block" /> Hum |  22%</p>
+        <div className="flex flex-col gap-[10px]">
+            <p>
+                <BsWind className="inline-block" />
+                <span className="inline-block mx-[10px]">wind </span> | <span className="inline-block mx-[10px]">19km/h</span>
+            </p>
+            <p>
+                <BsDroplet className="inline-block" />
+                <span className="inline-block mx-[10px]">Hum</span> | <span className="inline-block mx-[10px]">22%</span>
+            </p>
         </div>
     );
 }
@@ -17,13 +23,13 @@ export default function CurrentWeather() {
     const [weatherCode, setWeatherCode] = useState(1);
 
     return (
-        <div className="h-[400px]  p-[20px] bg-blue-500 text-white">
+        <div className="h-[400px] p-[20px] bg-blue-500 text-white rounded-xl">
             <p>Location</p>
-            <div>
-                <ReturnWeatherIcon condition={weatherCode} size={"text-6xl"} />
-                <p>Today, 30 May</p>
-                <p>29 C</p>
-                <p>Sunny</p>
+            <div className="w-4/5 my-[20px] mx-auto flex flex-col gap-[20px] items-center">
+                <ReturnWeatherIcon condition={weatherCode} style={"text-7xl font-bold"} />
+                <p className="text-xs font-bold">Today, 30 May</p>
+                <p className="text-6xl">29 C</p>
+                <p className="font-bold">Sunny</p>
                 <WindAndHum />
             </div>
         </div>

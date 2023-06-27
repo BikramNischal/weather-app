@@ -29,7 +29,7 @@ export default function AirQuality() {
     );
 
     return (
-        <div className="bg-white p-[20px] rounded-2xl">
+        <div className="bg-white h-1/2 p-[20px] rounded-2xl">
             <div className="flex justify-between">
                 <h4 className="text-xl font-bold">Air Quality Index</h4>
                 <p>Location</p>

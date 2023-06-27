@@ -3,9 +3,9 @@ import { BsSunrise, BsSunset } from "react-icons/bs";
 
 export default function SunTimeCard() {
     return (
-        <div className="bg-orange-100 p-[10px] rounded-xl">
-            <h4 className="my-3 font-bold">Sunday</h4>
-            <div className="flex gap-10">
+        <div className="bg-orange-100 p-[25px] rounded-xl">
+            <h4 className="font-bold">Sunday</h4>
+            <div className="flex justify-between">
                 <div className="flex gap-5 items-center">
                     <BsSunrise className="text-4xl text-orange-500" />
                     <p className="text-gray-500">
