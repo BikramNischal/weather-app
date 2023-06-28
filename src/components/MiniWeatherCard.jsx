@@ -1,31 +1,41 @@
-import { BsSun, BsCloudSun, BsCloud, BsCloudRain, BsCloudLightningRain, BsLightning, BsCloudHaze2, BsQuestion } from "react-icons/bs";
+
+import sun from "../assets/icons/sun.svg";
+import cloudsun from "../assets/icons/partially-cloudy.svg";
+import cloud from "../assets/icons/cloud.svg";
+import rain from "../assets/icons/rain.svg";
+import thunderrain from "../assets/icons/thunder-rain.svg";
+import thunder from "../assets/icons/thunder.svg";
+import snow from "../assets/icons/snow.svg";
+import sunrain from "../assets/icons/partially-rainny.svg";
 
 
-export function ReturnWeatherIcon({ condition, style }) {
+export function ReturnWeatherIcon({ condition, size}) {
     switch (condition) {
         case 1:
-            return <BsSun className={style} />;
+            return <img src={sun} className={size} />;
 
         case 2:
-            return <BsCloudSun className={style} />
+            return <img src={cloudsun} className={size} />;
 
         case 3:
-            return <BsCloud className={style} />
+            return <img src={cloud} className={size} />;
 
         case 4:
-            return <BsCloudRain className={style} />
+            return <img src={rain} className={size} />;
 
         case 5:
-            return <BsCloudLightningRain className={style} />
+            return <img src={thunderrain} className={size} />;
 
         case 6:
-            return <BsLightning className={style} />
+            return <img src={thunder} className={size} />;
 
         case 7:
-            return <BsCloudHaze2 className={style} />
+            return <img src={sunrain} className={size} />;
 
+        case 8:
+            return <img src={snow} className={size} />;
         default:
-            return <BsQuestion className={style} />
+            return <BsQuestion className={size} />
 
     }
 
@@ -33,11 +43,11 @@ export function ReturnWeatherIcon({ condition, style }) {
 
 export default function MiniWeatherCard(props) {
     return (
-        <div className="w-[90px] h-[120px] p-2 bg-white 
+        <div className="w-[100px] min-h-[130px] p-2 bg-white 
             border-solid border-2 rounded-xl 
             flex flex-col justify-between items-center"
-            >
-            <ReturnWeatherIcon condition={props.condition} style={props.size + " " + "text-blue-500"} />
+        >
+            <ReturnWeatherIcon condition={props.condition} size={props.size} />
             <p>
                 sun<span className="block text-xs">temp</span>
             </p>

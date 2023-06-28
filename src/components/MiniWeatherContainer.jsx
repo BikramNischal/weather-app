@@ -7,7 +7,7 @@ export default function MiniWeatherContainer() {
 
     const listItems = weatherCondition.map(
         weatherCode => <li key={("weather_code_" + weatherCondition.indexOf(weatherCode))}>
-            <MiniWeatherCard condition={weatherCode} size={"text-6xl"} />
+            <MiniWeatherCard condition={weatherCode} size="w-4/5" />
         </li>);
 
     return (
