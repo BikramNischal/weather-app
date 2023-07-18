@@ -1,7 +1,8 @@
-import { useState, useContext, useEffect } from "react";
 import CurrentWeather from "./CurrentWeather"
-import CurrentWeatherMini from "./CurrentWeatherMini";
-import WeatherContext from "./WeatherContext";
+import {WindAndHum,UvIndex} from "./CurrentWeatherMini";
+import CurrentWeatherData from "./WeatherData";
+
+const data = await CurrentWeatherData(27.65,85.28,Intl.DateTimeFormat().resolvedOptions().timeZone);
 
 export default function CityWeather() {
     return (
@@ -10,9 +11,14 @@ export default function CityWeather() {
                 className="h-[50px] bg-blue-100 px-10 rounded-3xl " />
 
             <div className="flex gap-[25px] flex-col container">
-                <CurrentWeather />
-                <CurrentWeatherMini text="text-white" background="bg-red-400" />
-                <CurrentWeatherMini text="text-white" background="bg-orange-400" />
+                <CurrentWeather 
+                    currentDate={data.currentDate} 
+                    currentTemp={data.currentTemp} 
+                    weatherCondition={data.currentWeatherCondition} 
+                />
+                
+                <WindAndHum currentHumidity={data.currentHumidity} currentWindSpeed={data.currentWindSpeed} />
+                <UvIndex uvIndex={data.currentUvIndex} uvIndexClear={data.currentUvIndexClear} /> 
             </div>
         </section>
     );

@@ -1,11 +1,14 @@
-const elements = [
-    { element: "PM2", reading: 23 },
-    { element: "PM10", reading: 54 },
-    { element: "SO2", reading: 23 },
-    { element: "NO2", reading: 54 },
-    { element: "O2", reading: 67 },
-    { element: "CO", reading: 10 }];
+import { AirQualityData } from "./WeatherData";
 
+const airdata = await AirQualityData(27.65,85.28,Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+const elements = [
+    { element: "PM2", reading: airdata.pm2 },
+    { element: "PM10", reading: airdata.pm10 },
+    { element: "SO2", reading: airdata.so2 },
+    { element: "NO2", reading: airdata.no2 },
+    { element: "O3", reading: airdata.o3 },
+    { element: "CO", reading: airdata.co }];
 
 
 function AirElement(props) {

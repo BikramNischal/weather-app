@@ -1,4 +1,4 @@
-
+import {BsQuestion} from "react-icons/bs";
 import sun from "../assets/icons/sun.svg";
 import cloudsun from "../assets/icons/partially-cloudy.svg";
 import cloud from "../assets/icons/cloud.svg";
@@ -45,11 +45,11 @@ export default function MiniWeatherCard(props) {
     return (
         <div className="w-[100px] min-h-[130px] p-2 bg-white 
             border-solid border-2 rounded-xl 
-            flex flex-col justify-between items-center"
-        >
-            <ReturnWeatherIcon condition={props.condition} size={props.size} />
+            flex flex-col justify-between items-center">
+
+            <ReturnWeatherIcon condition={props.condition} size="w-4/5" />
             <p>
-                sun<span className="block text-xs">temp</span>
+                {props.day}<span className="block text-sm">{props.temp}&deg;</span>
             </p>
         </div>
 

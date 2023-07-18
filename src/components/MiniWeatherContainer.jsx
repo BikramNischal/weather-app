@@ -1,14 +1,20 @@
 import { useContext, useState } from "react";
 import MiniWeatherCard from "./MiniWeatherCard";
+import { dayOfWeek } from "./WeatherData";
 
 
-export default function MiniWeatherContainer() {
-    const [weatherCondition, setWeatherCondition] = useState([1, 2, 3, 4, 5, 6, 7]);
-
+export default function MiniWeatherContainer(props) {
+    const [weatherCondition, setWeatherCondition] = useState(props.forecast);
     const listItems = weatherCondition.map(
-        weatherCode => <li key={("weather_code_" + weatherCondition.indexOf(weatherCode))}>
-            <MiniWeatherCard condition={weatherCode} size="w-4/5" />
-        </li>);
+        forecast => <li key={
+            ("weather_code_" + weatherCondition.indexOf(forecast))}>
+            <MiniWeatherCard 
+                condition={forecast.weatherCode.weatherCode} 
+                temp={forecast.maxTemp}  
+                day ={dayOfWeek[forecast.sunRise.getDay()]} 
+                />
+        </li>
+    );
 
     return (
         <ul className="flex justify-between  my-10">
