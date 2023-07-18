@@ -93,8 +93,9 @@ function getForeCastData({daily}){
 
 export function AirQualityData(lat,lon,timezone){
     // "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=27.65&longitude=85.28&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone&timezone=auto&timeformat=unixtime";
+   https://air-quality-api.open-meteo.com/v1/air-quality?latitude=27.65&longitude=85.28&hourly=us_aqi_pm2_5,us_aqi_pm10,us_aqi_no2,us_aqi_co,us_aqi_o3,us_aqi_so2&timezone=auto&timeformat=unixtime 
 
-    return axios.get("https://air-quality-api.open-meteo.com/v1/air-quality?&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone&timezone=auto&timeformat=unixtime",
+    return axios.get("https://air-quality-api.open-meteo.com/v1/air-quality?hourly=us_aqi_pm2_5,us_aqi_pm10,us_aqi_no2,us_aqi_co,us_aqi_o3,us_aqi_so2&timeformat=unixtime",
         {
             params:{
                 latitude:lat,
@@ -110,11 +111,19 @@ export function AirQualityData(lat,lon,timezone){
 
 function getAirQuality({hourly}, currentTime){
     return{
-        pm10: hourly.pm10[currentTime],
-        pm2: hourly.pm2_5[currentTime],
-        co: hourly.carbon_monoxide[currentTime],
-        no2: hourly.nitrogen_dioxide[currentTime],
-        so2: hourly.sulphur_dioxide[currentTime],
-        o3: hourly.ozone[currentTime],
+        pm10: hourly.us_aqi_pm10[currentTime],
+        pm2: hourly.us_aqi_pm2_5[currentTime],
+        co: hourly.us_aqi_co[currentTime],
+        no2: hourly.us_aqi_no2[currentTime],
+        so2: hourly.us_aqi_so2[currentTime],
+        o3: hourly.us_aqi_o3[currentTime],
    };
 }
+
+
+
+/*
+geocoding api
+https://geocode.maps.co/search?q={address}
+
+*/
