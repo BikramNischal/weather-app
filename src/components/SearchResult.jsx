@@ -47,7 +47,7 @@ export default function SearchResult(props) {
             address => <li 
                 key={"addres_code_" + data.indexOf(address)}
                 onClick= {() => {handleClick(address)}}
-                className="group p-[10px] border-b-2 border-grey-600 overflow-visible"     
+                className="group p-[10px] border-b-2 border-grey-600 last:border-b-0"     
             >
                 <Address place={address.name} address={address.address} />
                 <span className="hidden group-hover:block rounded-lg text-blue-500 text-xs ">{address.display_name}</span>

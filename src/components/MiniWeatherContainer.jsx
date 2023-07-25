@@ -12,7 +12,7 @@ export default function MiniWeatherContainer(props) {
     
     const listItems = weatherCondition.map(
         forecast => <li key={
-            ("weather_code_" + weatherCondition.indexOf(forecast))}>
+            ("weather_code_" + weatherCondition.indexOf(forecast))} className="mx-[5px]">
             <MiniWeatherCard 
                 condition={forecast.weatherCode.weatherCode} 
                 temp={forecast.maxTemp}  
@@ -22,7 +22,7 @@ export default function MiniWeatherContainer(props) {
     );
 
     return (
-        <ul className="flex justify-between  my-10">
+        <ul className="flex justify-between my-10 overflow-x-scroll">
             {listItems}
         </ul>
     )

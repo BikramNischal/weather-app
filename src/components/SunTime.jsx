@@ -23,7 +23,7 @@ export default function SunTime(props) {
 
 
     return (
-        <section className="container w-1/2 bg-white p-[20px] rounded-xl">
+        <section className="container w-full mx-auto bg-white p-[20px] rounded-xl lg:w-1/2 lg:p-[10px] xl:p-[20px]">
             <h3 className="text-xl font-bold my-[5px]">Sunrise & Sunset</h3>
             <ul className="flex flex-col gap-[10px]">
                 {sunTimeList}

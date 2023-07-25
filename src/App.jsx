@@ -15,9 +15,9 @@ function App() {
 
     return (
 
-        <div className="box-border flex justify-between">
-            <WeatherDetail location={locationDetails} updateLocation={setLocationDetails} />
+        <div className="box-border flex flex-col justify-between lg:flex-row ">
             <CityWeather location={locationDetails} updateLocation={setLocationDetails} />
+            <WeatherDetail location={locationDetails} updateLocation={setLocationDetails} />
         </div>
     );
 

@@ -18,9 +18,12 @@ export default function CityWeather(props) {
 
     if (data) {
         return (
-            <section className="w-1/3 px-20 py-10 flex flex-col gap-[50px]">
+            <section className="w-full p-5  
+                sm:px-20 sm:py-10 
+                lg:p-5 lg:w-1/3 
+                2xl:px-20 2xl:py-10 flex flex-col gap-[50px]">
                 <Search location={props.location} updateLocation={props.updateLocation} />
-                <div className="flex gap-[25px] flex-col container">
+                <div className="flex gap-[25px] flex-col mx-auto container ">
                     <CurrentWeather
                         location={props.location.locationName}
                         currentDate={data.currentDate}

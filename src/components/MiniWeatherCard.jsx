@@ -49,7 +49,7 @@ export default function MiniWeatherCard(props) {
 
             <ReturnWeatherIcon condition={props.condition} size="w-4/5" />
             <p>
-                {props.day}<span className="block text-sm">{props.temp}&deg;</span>
+                {props.day.slice(0,3)}<span className="block text-sm">{props.temp}&deg;</span>
             </p>
         </div>
 

@@ -90,7 +90,7 @@ export default function AirQuality(props) {
 
                 return (
                     <li key={"Aq-" + (elements.indexOf(item))}
-                        className={style + " w-[60px] h-[75px] text-center py-2 rounded-xl"} >
+                        className={style + " min-w-[60px] h-[75px] mx-[5px] text-center py-2 rounded-xl"} >
                         <AirElement
                             elementsReading={item.reading}
                             elements={item.element}
@@ -116,16 +116,16 @@ export default function AirQuality(props) {
         }
 
         return (
-            <div className="bg-white h-1/2 p-[20px] rounded-2xl">
+            <div className="bg-white min-h-1/2 h-auto p-[20px] rounded-2xl">
                 <div className="flex justify-between">
                     <h4 className="text-xl font-bold">Air Quality Index</h4>
-                    <p>Location</p>
+                    <p className="text-blue-500 font-bold">{props.location.locationName}</p>
                 </div>
                 <div className="my-5">
                     <h4 className="font-semibold text-xl">{condition}</h4>
                     <p className="text-gray-400">{statement}</p>
                 </div>
-                <ul className="flex justify-between">
+                <ul className="flex justify-between overflow-x-scroll">
                     {airElements}
                 </ul>
             </div>

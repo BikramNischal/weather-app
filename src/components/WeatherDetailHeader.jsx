@@ -12,7 +12,7 @@ const timeOfDay = (sunrise, sunset) => {
 
 
 function Greeting(props) {
-    const tod = timeOfDay(props.sunrise,props.sunset);
+    const tod = timeOfDay(props.sunrise, props.sunset);
     if (tod === 0) {
         return (
             <p className="text-blue-600 font-bold" >
@@ -45,9 +45,11 @@ function Greeting(props) {
 
 export default function WeatherDetailHeader(props) {
     return (
-        <>
-            <DateTime />
-            <Greeting sunrise={props.sunriseTime} sunset={props.sunsetTime} />
-        </>
+        <div className=" hidden lg:block lg:flex lg:flex-row-reverse">
+            <div>
+                <DateTime />
+                <Greeting sunrise={props.sunriseTime} sunset={props.sunsetTime} />
+            </div>
+        </div>
     );
 }
