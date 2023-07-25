@@ -1,18 +1,52 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import SearchResult from "./SearchResult";
 
 
-const Search = ({onSearchChange}) =>{
+export default function Search(props) {
+    const [searchKey, setSearchKey] = useState("");
+    const [searchResult, setSearchReuslt] = useState(false);
+    const [location, setLocation] = useState("");
 
-    const [search, setSearch] = useState(null);
 
-    const handleOnChange = (searchData) => {
-        setSearch(searchData);
-        onSearchChange(searchData);
+    function handleInputClick(event){
+        setSearchKey("");
+        setSearchReuslt(false);
     }
 
-    return(
-        <h1>hello World</h1>
-    )
-}
+    function handleClick() {
+        setLocation(searchKey);
+        setSearchReuslt(true);
+    }
 
-export default Search;
+    if (searchResult){
+        return (
+            <div>
+                <div>
+                    <input type="text" id="search-bar" placeholder="Location" 
+                        onChange={e => setSearchKey(e.target.value)}
+                        onClick={handleInputClick} value={searchKey} 
+                        className="h-[50px] bg-blue-100 px-10 rounded-3xl " />
+                    <button onClick={handleClick}>search</button>
+                </div>
+                <SearchResult 
+                    result={location} 
+                    location={props.location} 
+                    updateLocation={props.updateLocation} />
+            </div>
+        );
+    }
+    else {
+        return (
+            <div>
+                <div>
+                    <input type="text" id="search-bar" placeholder="Location" 
+                        onChange={e => setSearchKey(e.target.value)}
+                        value={searchKey}
+                        className="h-[50px] bg-blue-100 px-10 rounded-3xl " />
+                    <button onClick={handleClick}>search</button>
+                </div>
+            </div>
+        );
+    }
+
+}

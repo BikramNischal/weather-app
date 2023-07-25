@@ -1,10 +1,27 @@
-import { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 
 const currentDate = new Date();
 const currentTime = currentDate.getHours();
 
-export const dayOfWeek= ["Sun", "Mon", "Tue", "Wed","Thu","Fri","Sat"];
+function getCurrentTime(date, timezone){
+    const time = new Date(date).toLocaleTimeString('en-US', { timeZone: timezone}).split(" ");
+    const splitTime = time[0].split(":");
+    const currenthour = Number(splitTime[0]);
+    let currenthour24 = 0;
+    if(time[1] === "AM") currenthour24 = currenthour % 12;
+    else
+        if(currenthour < 12) currenthour24 = 12 + currenthour;
+        else currenthour24 = currenthour;
+ 
+    return({
+        currentHour: currenthour24,
+        currentTime: splitTime[0]+":"+splitTime[1] + " " + time[1]
+    });
+
+}
+
+
+export const dayOfWeek= ["Sun", "Mon", "Tues", "Wednes","Thurs","Fri","Satur"];
 
 export function mapWeatherCode(weathercode){
     if(weathercode <= 1) return {weatherCode: 1, weather: "Clear"}; 
@@ -22,38 +39,35 @@ export function mapWeatherCode(weathercode){
 
 //https://api.open-meteo.com/v1/forecast?latitude=27.65&longitude=85.28&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,weathercode,windspeed_10m&daily=sunset,uv_index_max,rain_sum,precipitation_probability_max&timeformat=unixtime&forecast_days=1&timezone=auto
 
-export function ForecastData(lat,lon, timezone){
+export function ForecastData(lat,lon){
     return axios.get(
         "https://api.open-meteo.com/v1/forecast?daily=weathercode,temperature_2m_max,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,windspeed_10m_max&timeformat=unixtime&timezone=auto",
         {
             params:{
                 latitude:lat,
                 longitude:lon,
-                timezone,
             },
         }
     )
     .then(({data}) =>{
-            return getForeCastData(data);
-            
+            return getForeCastData(data, data.timezone);    
         }
     )
 };
 
-export default function CurrentWeatherData(lat,lon,timezone){
+export default function CurrentWeatherData(lat,lon){
     return axios.get(
         "https://api.open-meteo.com/v1/forecast?hourly=relativehumidity_2m,temperature_2m,weathercode,windspeed_10m&daily=uv_index_max,uv_index_clear_sky_max&timeformat=unixtime&forecast_days=1&timezone=auto",
         {
             params:{
                 latitude:lat,
                 longitude:lon,
-                timezone,
             }
         }
     )
     .then(({data}) =>{
-        return getCurrentWeather(data, currentTime);
-             
+            const currentTime =getCurrentTime(Date(), data.timezone);
+            return getCurrentWeather(data, currentTime.currentHour); 
         }
     )
 }
@@ -79,32 +93,36 @@ function getCurrentWeather({hourly,daily}, currentTime){
     };
 }
 
-function getForeCastData({daily}){
+
+function getForeCastData({daily}, timeZone){
     return daily.time.map((time,index)=>{
         return{
             weatherCode: mapWeatherCode(daily.weathercode[index]),
             maxTemp: Math.round(daily.temperature_2m_max[index]),
-            sunRise: new Date(daily.sunrise[index]*1000),
-            sunSet:new  Date(daily.sunset[index]*1000),
+            sunRise:{
+                    date: new Date(daily.sunrise[index]*1000),
+                    time: getCurrentTime(daily.sunrise[index]*1000,timeZone),
+                },
+            sunSet:{
+                    date: new Date(daily.sunset[index]*1000),
+                    time: getCurrentTime(daily.sunset[index]*1000,timeZone),
+                },
+
         }
     });
 }
 
-
-export function AirQualityData(lat,lon,timezone){
-    // "https://air-quality-api.open-meteo.com/v1/air-quality?latitude=27.65&longitude=85.28&hourly=pm10,pm2_5,carbon_monoxide,nitrogen_dioxide,sulphur_dioxide,ozone&timezone=auto&timeformat=unixtime";
-   https://air-quality-api.open-meteo.com/v1/air-quality?latitude=27.65&longitude=85.28&hourly=us_aqi_pm2_5,us_aqi_pm10,us_aqi_no2,us_aqi_co,us_aqi_o3,us_aqi_so2&timezone=auto&timeformat=unixtime 
-
-    return axios.get("https://air-quality-api.open-meteo.com/v1/air-quality?hourly=us_aqi_pm2_5,us_aqi_pm10,us_aqi_no2,us_aqi_co,us_aqi_o3,us_aqi_so2&timeformat=unixtime",
+export function AirQualityData(lat,lon){
+    return axios.get("https://air-quality-api.open-meteo.com/v1/air-quality?hourly=us_aqi_pm2_5,us_aqi_pm10,us_aqi_no2,us_aqi_co,us_aqi_o3,us_aqi_so2&timeformat=unixtime&timezone=auto",
         {
             params:{
                 latitude:lat,
                 longitude: lon,
-                timezone,
             }
         }
     ).then(({data})=>{
-        return getAirQuality(data, currentTime);
+        const currentTime =getCurrentTime(Date(), data.timezone);
+        return getAirQuality(data, currentTime.currentHour);
     });
 }
 
@@ -121,9 +139,3 @@ function getAirQuality({hourly}, currentTime){
 }
 
 
-
-/*
-geocoding api
-https://geocode.maps.co/search?q={address}
-
-*/

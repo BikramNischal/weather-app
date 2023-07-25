@@ -6,9 +6,9 @@ export default function SunTime(props) {
     const sunTimeData = props.forecast.map(
         data => {
             return {
-                sunrise: data.sunRise.getHours() + ":" + data.sunRise.getMinutes(),
-                sunset : data.sunSet.getHours() % 12 + ":" + data.sunSet.getMinutes(),
-                day : dayOfWeek[data.sunRise.getDay()],
+                sunrise: data.sunRise.time.currentTime,
+                sunset : data.sunSet.time.currentTime,
+                day : dayOfWeek[data.sunRise.date.getDay()],
             }
         }
     );
