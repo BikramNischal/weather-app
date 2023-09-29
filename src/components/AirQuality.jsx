@@ -125,7 +125,7 @@ export default function AirQuality(props) {
                     <h4 className="font-semibold text-xl">{condition}</h4>
                     <p className="text-gray-400">{statement}</p>
                 </div>
-                <ul className="flex justify-between overflow-x-scroll">
+                <ul className="flex justify-between overflow-x-scroll no-scrollbar">
                     {airElements}
                 </ul>
             </div>

@@ -22,7 +22,7 @@ export default function MiniWeatherContainer(props) {
     );
 
     return (
-        <ul className="flex justify-between my-10 overflow-x-scroll">
+        <ul className="flex justify-between my-10 overflow-x-scroll no-scrollbar">
             {listItems}
         </ul>
     )
