@@ -13,21 +13,23 @@ A simple responsive web-app that shows weather of a city/place, along with 7 day
 cd weather-app
 ```
 
-- Install app dependency  
+- Install app dependency(you can follow either of the following method)  
+#### Using NPM
 ```
 npm install
-```
-### OR
-
-```
-yarn
 ```
 
 - Run the app
 ```
 npm run dev
 ```
-### OR
+
+#### Using Yarn 
+- Install app dependency(using yarn)
+```
+yarn
+```
+
 ```
 yarn dev
 ```
