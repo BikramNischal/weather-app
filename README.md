@@ -8,8 +8,8 @@ A simple responsive web-app that shows weather of a city/place, along with 7 day
     - React
 
 ## APIs Used
-    - Weather API [OpenMeteo](https://open-meteo.com/)
-    - GeoCoding [GeoCoding](https://geocode.maps.co/)
+    - Weather API <https://open-meteo.com/>
+    - GeoCoding <https://geocode.maps.co/>
 
 
 ## Run Locally(Installation) 
