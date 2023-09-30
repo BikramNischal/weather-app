@@ -1,6 +1,17 @@
 # Weathe App
 A simple responsive web-app that shows weather of a city/place, along with 7 days Forecast and Air Quality Index.
 
+## Tech Stack
+    - HTML5
+    - TailwindCSS
+    - JavaScript
+    - React
+
+## APIs Used
+    - Weather API [OpenMeteo]("https://open-meteo.com/")
+    - GeoCoding [GeoCoding]("https://geocode.maps.co/")
+
+
 ## Run Locally(Installation) 
 
 1. First clone the github repo using 
