@@ -3,36 +3,36 @@ A simple responsive web-app that shows weather of a city/place, along with 7 day
 
 ## Run Locally(Installation) 
 
-- First clone the github repo using 
+1. First clone the github repo using 
 ```
  git clone https://github.com/BikramNischal/weather-app.git 
 ```
 
-- Then change to project directory
+2. Change to project directory
 ```
 cd weather-app
 ```
 
-- Install app dependency(you can follow either of the following method)  
-#### Using NPM
-```
-npm install
-```
+3. Install app dependency(you can follow either of the following method)  
+    - Using NPM
+    ```
+    npm install
+    ```
 
-- Run the app
-```
-npm run dev
-```
+    - Using Yarn 
+    ```
+    yarn
+    ```
+4. Run the app
+    - Using NPM
+    ```
+    npm run dev
+    ```
 
-#### Using Yarn 
-- Install app dependency(using yarn)
-```
-yarn
-```
-
-```
-yarn dev
-```
+    - Using Yarn
+    ```
+    yarn dev
+    ```
 
 
 
